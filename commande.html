@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commandez Vos Produits Maintenant</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <style>
+
+.size-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .size-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f7f6;
+            background: linear-gradient(135deg, #e1132e, #E046A0)
+        }
+        .hero-section {
+            /* background: linear-gradient(to right, #E046A0, #CB13E1); */
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .hero-section p {
+            font-size: 1.25rem;
+        }
+
+        .order-form {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .order-form h2 {
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #333;
+            text-align: center;
+        }
+
+        .order-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .order-form label {
+            font-weight: 600;
+        }
+
+        .order-form .form-control {
+            border-radius: 4px;
+            border-color: #ced4da;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-form .btn {
+            border-radius: 4px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .order-form .btn-primary {
+            background-color: #E046A0;
+            border-color: #E046A0;
+        }
+
+        .order-form .btn-primary:hover {
+            background-color: #d0358f;
+            border-color: #d0358f;
+        }
+
+        .order-form .btn-primary:focus {
+            box-shadow: 0 0 0 0.2rem rgba(224, 70, 160, 0.25);
+        }
+        
+        .order-form .form-control::placeholder {
+            color: #aaa;
+            opacity: 1; /* Firefox */
+        }
+
+        .contact-icons {
+            position: fixed;
+            bottom: 20px;
+            left: 1%;
+            display: flex;
+            flex-direction: column;
+            align-content: flex-start;
+            gap: 10px;
+        }
+
+        .contact-icons a {
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E046A0;
+            transition: background-color 0.3s;
+        }
+
+        .contact-icons a:hover {
+            background-color: #d0358f;
+        }
+
+        .table{
+            width: 100%;
+        }
+/* Styles pour les écrans mobiles */
+.contact-icons {
+    bottom: 10px;
+    left: 10px;
+    flex-direction: row;
+    gap: 10px;
+}
+
+@media (max-width: 576px) {
+    .contact-icons {
+        justify-content: space-around;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        position: relative;
+    }
+
+    .contact-icons a {
+        font-size: 16px;
+        width: 30px;
+        height: 30px;
+    }
+}
+@media (max-width: 576px) {
+    .order-form {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .order-form h2 {
+        font-size: 1.5rem;
+    }
+    
+    .order-form .form-group {
+        margin-bottom: 1rem;
+    }
+}
+
+
+.table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media (max-width: 576px) {
+    .table {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        background: linear-gradient(135deg, #e1132e, #E046A0);
+    }
+    
+    .hero-section {
+        padding: 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+}
+
+    </style>
+
+</head>
+<body style="background: linear-gradient(135deg, #e1132e, #E046A0)">
+    <header>
+
+    <div class="hero-section">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html" style="justify-content:  center;" >
+                <img src="./images/logo.png" alt="Logo Elite Uniforme" style="width: 100px; height: auto;">
+                <span class="ms-2 text-white" style="font-family: 'Mochiy Pop P One', sans-serif; font-size: 1.5rem;">Elite Uniforme</span>
+            </a>
+            <h1>Commandez Vos Produits Maintenant</h1>
+            <p>Découvrez nos articles exclusifs et passez votre commande en quelques étapes simples.</p>
+        </div>
+    </div>
+</header>
+
+
+    <div  class="container section ">
+        <div class="order-form">
+            <h2>Formulaire de Commande</h2>
+            <form action="thanks.html" method="post" enctype="multipart/form-data"  id="orderForm">
+                
+ <!-- Détails de l'Article -->
+<div id="article-container">
+    <div class="article-item">
+        <h3>Détails de l'Article</h3>
+
+        <!-- Type de l'Article -->
+        <div class="form-group">
+            <label for="product-type">Type de l'Article</label>
+            <select class="form-control" id="product-type-select" name="product-type[]" required onchange="showAdditionalFields(this)">
+                <option value="" disabled selected>Choisir un type d'article</option>
+                <option value="tshirt">T-shirt Personnalisé</option>
+                <option value="housse">Housse de Valise</option>
+                <option value="calot">Calot d'Élite</option>
+            </select>
+        </div>
+
+        <!-- Choix de Couleur -->
+        <div class="form-group">
+            <label for="color">Choisissez la Couleur de l'Article</label>
+            <select class="form-control" name="color[]" required id="color-select">
+                <!-- Les options de couleur seront définies par JavaScript -->
+            </select>
+        </div>
+
+        <!-- Section Taille (Pour T-shirt) -->
+        <div class="form-group size-options" style="display: none;">
+            <label for="size">Choisissez la Taille du T-shirt</label>
+            <select class="form-control" name="size[]">
+                <option value="" disabled selected>Choisir une taille</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+        </div>
+
+
+<!-- Section Taille pour les housses avec tableau et cases à cocher -->
+<div class="form-group size-options" style="display: none;" id="housse-size-section">
+    <h4>Dimensions des Housses</h4>
+
+    <!-- Tableau pour les tailles de housses -->
+     
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Choix</th>
+                <th>Taille</th>
+                <th>Longueur (cm)</th>
+                <th>Largeur (cm)</th>
+                <th>Profondeur (cm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Ligne pour Housse Grande -->
+            <tr>
+                <td><input type="checkbox" id="check-grande" onclick="updateTotal()"></td>
+                <td>Grande</td>
+                <td><input type="number" class="form-control" name="length-grande" id="length-grande" min="1" placeholder="Longueur" disabled></td>
+                <td><input type="number" class="form-control" name="width-grande" id="width-grande" min="1" placeholder="Largeur" disabled></td>
+                <td><input type="number" class="form-control" name="depth-grande" id="depth-grande" min="1" placeholder="Profondeur" disabled></td>
+            </tr>
+            <!-- Ligne pour Housse Moyenne -->
+            <tr>
+                <td><input type="checkbox" id="check-moyenne" onclick="updateTotal()"></td>
+                <td>Moyenne</td>
+                <td><input type="number" class="form-control" name="length-moyenne" id="length-moyenne" min="1" placeholder="Longueur" disabled></td>
+                <td><input type="number" class="form-control" name="width-moyenne" id="width-moyenne" min="1" placeholder="Largeur" disabled></td>
+                <td><input type="number" class="form-control" name="depth-moyenne" id="depth-moyenne" min="1" placeholder="Profondeur" disabled></td>
+            </tr>
+            <!-- Ligne pour Housse Petite -->
+            <tr>
+                <td><input type="checkbox" id="check-petite" onclick="updateTotal()"></td>
+                <td>Petite</td>
+                <td><input type="number" class="form-control" name="length-petite" id="length-petite" min="1" placeholder="Longueur" disabled></td>
+                <td><input type="number" class="form-control" name="width-petite" id="width-petite" min="1" placeholder="Largeur" disabled></td>
+                <td><input type="number" class="form-control" name="depth-petite" id="depth-petite" min="1" placeholder="Profondeur" disabled></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+                <!-- Fichier de Design -->
+                <div class="form-group">
+                    <label for="design-file">Télécharger un Design Personnalisé (si applicable)</label>
+                    <input type="file" class="form-control" id="design-file" name="design-file">
+                </div>
+                <!-- Détails de Livraison -->
+                <h3>Détails de Livraison</h3>
+                <div class="form-group">
+                    <label for="full-name">Nom Complet</label>
+                    <input type="text" class="form-control" id="full-name" name="full-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="wilaya">Wilaya</label>
+                    <select class="form-control" id="wilaya" name="wilaya" required>
+                        <option value="" disabled selected>Choisir une wilaya</option>
+                        <option value="01">01 Adrar</option>
+                        <option value="02">02 Chlef</option>
+                        <option value="03">03 Laghouat</option>
+                        <option value="04">04 Oum El Bouaghi</option>
+                        <option value="05">05 Batna</option>
+                        <option value="06">06 Béjaïa</option>
+                        <option value="07">07 Biskra</option>
+                        <option value="08">08 Béchar</option>
+                        <option value="09">09 Blida</option>
+                        <option value="10">10 Bouira</option>
+                        <option value="11">11 Tamanrasset</option>
+                        <option value="12">12 Tébessa</option>
+                        <option value="13">13 Tlemcen</option>
+                        <option value="14">14 Tiaret</option>
+                        <option value="15">15 Tizi-Ouzou</option>
+                        <option value="16">16 Alger</option>
+                        <option value="17">17 Djelfa</option>
+                        <option value="18">18 Jijel</option>
+                        <option value="19">19 Sétif</option>
+                        <option value="20">20 Saida</option>
+                        <option value="21">21 Skikda</option>
+                        <option value="22">22 Sidi-Bel-Abbès</option>
+                        <option value="23">23 Annaba</option>
+                        <option value="24">24 Guelma</option>
+                        <option value="25">25 Constantine</option>
+                        <option value="26">26 Médéa</option>
+                        <option value="27">27 Mostaganem</option>
+                        <option value="28">28 M'Sila</option>
+                        <option value="29">29 Mascara</option>
+                        <option value="30">30 Ouargla</option>
+                        <option value="31">31 Oran</option>
+                        <option value="32">32 El-Bayadh</option>
+                        <option value="33">33 Illizi</option>
+                        <option value="34">34 Bordj-Bou-Arreridj</option>
+                        <option value="35">35 Boumerdès</option>
+                        <option value="36">36 El-Tarf</option>
+                        <option value="37">37 Tindouf</option>
+                        <option value="38">38 Tissemsilt</option>
+                        <option value="39">39 El-Oued</option>
+                        <option value="40">40 Khenchela</option>
+                        <option value="41">41 Souk-Ahras</option>
+                        <option value="42">42 Tipaza</option>
+                        <option value="43">43 Mila</option>
+                        <option value="44">44 Aïn-Defla</option>
+                        <option value="45">45 Naâma</option>
+                        <option value="46">46 Aïn-Témouchent</option>
+                        <option value="47">47 Ghardaia</option>
+                        <option value="48">48 Relizane</option>
+                        <option value="49">49 Timimoun</option>
+                        <option value="50">50 Bordj Badji Mokhtar</option>
+                        <option value="51">51 Ouled Djellal</option>
+                        <option value="52">52 Béni Abbès</option>
+                        <option value="53">53 In Salah</option>
+                        <option value="54">54 In Guezzam</option>
+                        <option value="55">55 Touggourt</option>
+                        <option value="56">56 Djanet</option>
+                        <option value="57">57 El M'Ghair</option>
+                        <option value="58">58 El Meniaa</option>  
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Numéro de Téléphone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" required>
+                </div>
+
+                <button  type="submit" class="btn btn-primary"style="background: linear-gradient(to right, #E046A0, #CB13E1)">Soumettre la Commande</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Section Total -->
+<!-- Section Total -->
+<div class="form-group">
+    <label for="total">Pirx de votre Produit</label>
+    <input type="text" class="form-control" id="total" name="total" readonly>
+</div>
+
+
+    
+    <!-- Icônes de Contact -->
+    <div class="contact-icons">
+        <a href="https://m.me/yourpage" target="_blank" title="Messenger"><i class="fab fa-facebook-messenger"></i></a>
+        <a href="https://instagram.com/yourprofile" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://tiktok.com/@yourprofile" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="tel:+1234567890" target="_blank" title="Téléphone"><i class="fas fa-phone-alt"></i></a>
+        <a href="https://wa.me/1234567890" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
+<script>
+    // Object containing product costs
+    const productCosts = {
+        'tshirt': 2200, // Cost of T-shirt
+        'housse-petite': 1000, // Cost of Housse petite
+        'housse-moyenne': 2000, // Cost of Housse moyenne
+        'housse-grande': 3000, // Cost of Housse grande
+        'calot': 1300,  // Cost of Calot
+    };
+
+    // Object containing shipping costs by wilaya
+    const shippingCosts = {
+    "01": 400, // Adrar
+      "02": 400,  // Chlef
+      "03": 400, // Laghouat
+      "04": 400,  // Oum El Bouaghi
+      "05": 400,  // Batna
+      "06": 400,  // Béjaïa
+      "07": 400,  // Biskra
+      "08": 400, // Béchar
+      "09": 400,  // Blida
+      "10": 400,  // Bouira
+      "11": 400, // Tamanrasset
+      "12": 400,  // Tébessa
+      "13": 400,  // Tlemcen
+      "14": 400,  // Tiaret
+      "15": 400,  // Tizi-Ouzou
+      "16": 400,    // Alger - Livraison gratuite
+      "17": 400, // Djelfa
+      "18": 400,  // Jijel
+      "19": 400,  // Sétif
+      "20": 400, // Saida
+      "21": 400,  // Skikda
+      "22": 400,  // Sidi-Bel-Abbès
+      "23": 400,  // Annaba
+      "24": 400,  // Guelma
+      "25": 400,  // Constantine
+      "26": 400,  // Médéa
+      "27": 400,  // Mostaganem
+      "28": 400, // M'Sila
+      "29": 400,  // Mascara
+      "30": 400, // Ouargla
+      "31": 400,  // Oran
+      "32": 400, // El-Bayadh
+      "33": 400, // Illizi
+      "34": 400,  // Bordj-Bou-Arreridj
+      "35": 400,  // Boumerdès
+      "36": 400,  // El-Tarf
+      "37": 400, // Tindouf
+      "38": 400,  // Tissemsilt
+      "39": 400, // El-Oued
+      "40": 400,  // Khenchela
+      "41": 400,  // Souk-Ahras
+      "42": 400,  // Tipaza
+      "43": 400,  // Mila
+      "44": 400,  // Aïn-Defla
+      "45": 400, // Naâma
+      "46": 400,  // Aïn-Témouchent
+      "47": 400, // Ghardaia
+      "48": 400,  // Relizane
+      "49": 400, // Timimoun
+      "50": 400, // Bordj Badji Mokhtar
+      "51": 400, // Ouled Djellal
+      "52": 400, // Béni Abbès
+      "53": 400, // In Salah
+      "54": 400, // In Guezzam
+      "55": 400, // Touggourt
+      "56": 400, // Djanet
+      "57": 400, // El M'Ghair
+      "58": 400  // El Meniaa
+};
+
+
+// Update the total price based on selected options
+function updateTotal() {
+    const productType = document.getElementById('product-type-select').value;       
+    const wilaya = document.getElementById('wilaya').value;
+    const shippingCost = shippingCosts[wilaya] || 0;
+    const productCost = productCosts[productType] || 0;
+    let total = productCost + shippingCost;
+
+    // Check selected housses and add their prices
+    if (document.getElementById('check-grande').checked) {
+        total += productCosts['housse-grande'];
+    }
+    if (document.getElementById('check-moyenne').checked) {
+        total += productCosts['housse-moyenne'];
+    }
+    if (document.getElementById('check-petite').checked) {
+        total += productCosts['housse-petite'];
+    }
+
+    document.getElementById('total').value = total > 0 ? total + ' DA' : 'Non disponible';
+}
+
+// Show additional fields based on selected product type
+function showAdditionalFields(select) {
+    const selectedType = select.value;
+    const colorSelect = document.getElementById('color-select');
+    const sizeOptions = document.querySelector('.size-options');
+    const housseSizeSection = document.getElementById('housse-size-section');
+
+    // Color options based on selected product type
+    const colorOptions = {
+        'tshirt': ['Noir', 'Blanc', 'Bleu Marine', 'Vert', 'Rouge', 'Bleu'],
+        'housse': ['Noir'],
+        'calot': ['Noir', 'Blanc', 'Bleu Marine', 'Vert', 'Rouge', 'Bleu'],
+    };
+
+    // Reset color options
+    colorSelect.innerHTML = '<option value="" disabled selected>Choisir une couleur</option>';
+    if (colorOptions[selectedType]) {
+        colorOptions[selectedType].forEach(color => {
+            const option = document.createElement('option');
+            option.value = color;
+            option.textContent = color;
+            colorSelect.appendChild(option);
+        });
+    }
+
+    // Show or hide additional fields
+    sizeOptions.style.display = (selectedType === 'tshirt') ? 'block' : 'none';
+    housseSizeSection.style.display = (selectedType === 'housse') ? 'block' : 'none';
+}
+
+// Event listeners to update total when product type or wilaya changes
+document.getElementById('product-type-select').addEventListener('change', () => {
+    updateTotal();
+    showAdditionalFields(document.getElementById('product-type-select'));
+});
+document.getElementById('wilaya').addEventListener('change', updateTotal);
+
+// Initialize total on page load
+window.onload = updateTotal;
+
+
+// Fonction pour activer/désactiver les champs de dimensions
+function toggleFields(size) {
+    const isChecked = document.getElementById('check-' + size).checked;
+    document.getElementById('length-' + size).disabled = !isChecked;
+    document.getElementById('width-' + size).disabled = !isChecked;
+    document.getElementById('depth-' + size).disabled = !isChecked;
+}
+
+// Ajoutez les gestionnaires d'événements pour chaque case à cocher
+document.getElementById('check-grande').onclick = () => toggleFields('grande');
+document.getElementById('check-moyenne').onclick = () => toggleFields('moyenne');
+document.getElementById('check-petite').onclick = () => toggleFields('petite');
+
+
+
+    document.getElementById("orderForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+        // Ici, tu peux ajouter ton code de traitement (comme une requête AJAX)
+
+        // Redirection vers la page de confirmation
+        window.location.href = "thanks.html"; 
+    });
+
+
+</script>

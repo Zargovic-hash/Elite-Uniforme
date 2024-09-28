@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Elite Uniforme - Panier</title>
+
+    <!-- POPPIN FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+       <!--  crossorigin -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+   
+<!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+   <!-- FontAwesome for Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./styles.css">
+
+
+  <link rel="stylesheet" href="styles.css">
+  
+</head>
+
+<body>
+
+<!-- Header -->
+<header>  
+
+  <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+          <!-- Logo with link -->
+          <a class="navbar-brand" href="index.html" >
+              <img src="./images/logo.png" alt="Logo Elite Uniforme" style="width: 100px; height: 100px;">
+              <span class="ms-2 " style="font-family: 'Mochiy Pop P One', sans-serif; font-size: 1.5rem;color: #ffffff;">Elite Uniforme</span>
+          </a>
+          
+
+          <!-- Mobile Toggle Button -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fas fa-bars"></span>
+          </button>
+        
+          <!-- Navigation Menu -->
+          <div class="collapse navbar-collapse" id="navbarScroll">
+              <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                  <!-- Home Link -->
+                  <li class="nav-item">
+                      <a class="nav-link text-white active" aria-current="page" href="./index.html">Home</a>
+                  </li>
+
+                  <!-- Dropdown Menu for Products -->
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                          Nos Produits
+                      </a>
+                      <ul class="dropdown-menu">
+                      
+                          <li><a class="dropdown-item" href="Housses.html">Housse de Valise</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="Calots.html">Calot D'elite</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" href="t-shirt.html">T-shirt personnalisés</a></li>
+                      </ul>
+                  </li>
+
+                  <!-- About Us Link -->
+                  <li class="nav-item">
+                      <a class="nav-link text-white" href="./about.html">Qui sommes-nous</a>
+                  </li>
+              </ul>
+
+              <!-- Search Form -->
+              <form class="d-flex me-3" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+                  <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+              </form>
+
+          </div>
+          <!-- Buy Now Button with Cart Icon -->
+          <div>
+              <button onclick="displayCart()" class="btn btn-light position-relative" style="color:white; background:#BA324F ;">
+                  <a href="cart.html" style="text-decoration: none; color: inherit;">
+                      <i class="fas fa-shopping-cart"></i> Voir le panier
+                      <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                  </a>
+              </button>
+              <div id="cartContent"></div> <!-- Section où le panier sera affiché -->
+          </div>
+</div>
+
+
+  </nav>
+
+
+</header>
+
+<section class="container my-5"></section>
+  <h2 class="text-center mb-5">Votre Panier</h2>
+  <div class="row">
+    <!-- Table des articles -->
+    <div class="col-12 col-md-8 mb-4 mb-md-0">
+      <table class="table table-hover cart-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Image</th>
+            <th>Prix Unitaire</th>
+            <th>Quantité</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody id="cartTable">
+          <!-- Les produits du panier seront ajoutés ici via JavaScript -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Récapitulatif et formulaire -->
+    <div class="col-md-4">
+      <form id="orderForm" action="thanks.html" method="POST">
+        <!-- Dropdown des wilayas -->
+        <div class="form-group">
+          <label for="wilaya">Wilaya</label>
+          <select class="form-control" id="wilaya" name="wilaya" required onchange="calculerFrais()">
+            <option value="" disabled selected>Choisir une wilaya</option>
+            <!-- Liste des options des wilayas -->
+            <option value="01">01 Adrar</option>
+            <option value="02">02 Chlef</option>
+            <option value="03">03 Laghouat</option>
+            <option value="04">04 Oum El Bouaghi</option>
+            <option value="05">05 Batna</option>
+            <option value="06">06 Béjaïa</option>
+            <option value="07">07 Biskra</option>
+            <option value="08">08 Béchar</option>
+            <option value="09">09 Blida</option>
+            <option value="10">10 Bouira</option>
+            <option value="11">11 Tamanrasset</option>
+            <option value="12">12 Tébessa</option>
+            <option value="13">13 Tlemcen</option>
+            <option value="14">14 Tiaret</option>
+            <option value="15">15 Tizi-Ouzou</option>
+            <option value="16">16 Alger</option>
+            <option value="17">17 Djelfa</option>
+            <option value="18">18 Jijel</option>
+            <option value="19">19 Sétif</option>
+            <option value="20">20 Saida</option>
+            <option value="21">21 Skikda</option>
+            <option value="22">22 Sidi-Bel-Abbès</option>
+            <option value="23">23 Annaba</option>
+            <option value="24">24 Guelma</option>
+            <option value="25">25 Constantine</option>
+            <option value="26">26 Médéa</option>
+            <option value="27">27 Mostaganem</option>
+            <option value="28">28 M'Sila</option>
+            <option value="29">29 Mascara</option>
+            <option value="30">30 Ouargla</option>
+            <option value="31">31 Oran</option>
+            <option value="32">32 El-Bayadh</option>
+            <option value="33">33 Illizi</option>
+            <option value="34">34 Bordj-Bou-Arreridj</option>
+            <option value="35">35 Boumerdès</option>
+            <option value="36">36 El-Tarf</option>
+            <option value="37">37 Tindouf</option>
+            <option value="38">38 Tissemsilt</option>
+            <option value="39">39 El-Oued</option>
+            <option value="40">40 Khenchela</option>
+            <option value="41">41 Souk-Ahras</option>
+            <option value="42">42 Tipaza</option>
+            <option value="43">43 Mila</option>
+            <option value="44">44 Aïn-Defla</option>
+            <option value="45">45 Naâma</option>
+            <option value="46">46 Aïn-Témouchent</option>
+            <option value="47">47 Ghardaia</option>
+            <option value="48">48 Relizane</option>
+            <option value="49">49 Timimoun</option>
+            <option value="50">50 Bordj Badji Mokhtar</option>
+            <option value="51">51 Ouled Djellal</option>
+            <option value="52">52 Béni Abbès</option>
+            <option value="53">53 In Salah</option>
+            <option value="54">54 In Guezzam</option>
+            <option value="55">55 Touggourt</option>
+            <option value="56">56 Djanet</option>
+            <option value="57">57 El M'Ghair</option>
+            <option value="58">58 El Meniaa</option>  
+            
+          </select>
+        </div>
+
+        <!-- Frais de livraison et Total -->
+        <div class="p-3 border rounded">
+          <h4>Récapitulatif</h4>
+          <div class="d-flex justify-content-between">
+            <p>Frais de Livraison</p>
+            <p id="frais-livraison">Gratuit</p>
+          </div>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <h5 id="totalPrice">0 Da</h5>
+          </div>
+
+          <!-- Formulaire utilisateur -->
+          <div class="form-group">
+            <label for="fullName">Nom Complet</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Numéro de Téléphone</label>
+            <input type="tel" class="form-control" id="phone" name="phone" required pattern="[0-9]{10}" title="Veuillez entrer un numéro de téléphone valide à 10 chiffres.">
+          </div>
+
+          <!-- Bouton de soumission -->
+          <button type="submit" class="btn btn-primary">Demander votre produit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Footer -->
+<footer>
+
+    
+  <!-- Icônes de Communication -->
+  <div class="contact-icons d-flex justify-content-center py-3">
+      <a href="https://m.me/101951528789972" target="_blank" class="text-dark mx-3" title="Messenger">
+          <i class="fab fa-facebook-messenger fa-2x"></i>
+      </a>
+      <a href="https://instagram.com/unifom_delite/" target="_blank" class="text-dark mx-3" title="Instagram">
+          <i class="fab fa-instagram fa-2x"></i>
+      </a>
+      <a href="#" target="_blank" class="text-dark mx-3" title="TikTok">
+          <i class="fab fa-tiktok fa-2x"></i>
+      </a>
+      <a href="tel:+213657335085" class="text-dark mx-3" title="Appeler">
+          <i class="fas fa-phone fa-2x"></i>
+      </a>
+      <a href="https://wa.me/213657335085" target="_blank" class="text-dark mx-3" title="WhatsApp">
+          <i class="fab fa-whatsapp fa-2x"></i>
+      </a>
+  </div>
+
+    <!-- Our Values Section -->
+<div class="container values-section">
+  <h2 class="section-title">Nos Valeurs</h2>
+  <div class="row">
+      <div class="col-md-4 value-item">
+          <i class="fas fa-gem fa-3x mb-3 text-primary"></i>
+          <h4>Qualité Premium</h4>
+          <p>Nos produits sont fabriqués avec des matériaux de haute qualité pour assurer confort et durabilité.</p>
+      </div>
+      <div class="col-md-4 value-item">
+          <i class="fas fa-paint-brush fa-3x mb-3 text-success"></i>
+          <h4>Personnalisation Unique</h4>
+          <p>Chaque produit est conçu pour refléter votre style unique. Choisissez parmi une variété de designs ou créez le vôtre.</p>
+      </div>
+      <div class="col-md-4 value-item">
+          <i class="fas fa-shipping-fast fa-3x mb-3 text-warning"></i>
+          <h4>Livraison Rapide</h4>
+          <p>Nous nous engageons à expédier vos commandes rapidement et efficacement partout où vous êtes.</p>
+      </div>
+  </div>
+  <div class="py-3" id="copyright">
+      <p>&copy; 2024 Elite uniforme - Tous droits réservés</p>
+  </div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script>
+  function addToCart(name, price, image) {
+      // Récupérer les éléments actuels du panier dans le LocalStorage
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Ajouter le nouveau produit au panier
+      cart.push({name: name, price: price, image: image, quantity: 1});
+
+      // Stocker le panier mis à jour dans le LocalStorage
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      alert(name + " a été ajouté au panier.");
+  }
+</script>
+
+
+<!-- Scripts -->
+<script>
+function displayCart() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartTable = document.getElementById('cartTable');
+  cartTable.innerHTML = '';
+
+  cart.forEach((item, index) => {
+    let sizeOptions = '';
+
+    cartTable.innerHTML += `
+      <tr>
+        <td>${item.name}</td>
+        <td><img src="${item.image}" alt="${item.name}" class="img-fluid"></td>
+        <td>${item.price} Da</td>
+        <td><input type="number" value="${item.quantity}" class="form-control" onchange="updateQuantity(${index}, this.value)"></td>
+        <td>${item.price * item.quantity} Da</td>
+        <td>
+          ${sizeOptions}
+        </td>
+        <td><a href="#" onclick="removeFromCart(${index})" class="text-danger"><i class="fas fa-trash-alt"></i></a></td>
+      </tr>`;
+  });
+
+  updateTotal();
+}
+
+function updateSize(index, size) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart[index].size = size;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCart(); // Rafraîchir le panier
+}
+
+function updateDimensions(index, dimensions) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart[index].dimensions = dimensions;
+  localStorage.setItem('cart', JSON.stringify(cart));
+  displayCart(); // Rafraîchir le panier
+}
+
+
+  window.onload = function() {
+    displayCart();
+  };
+
+  function updateQuantity(index, newQuantity) {
+    let cart = JSON.parse(localStorage.getItem('cart'));
+    cart[index].quantity = parseInt(newQuantity);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+  }
+
+  function updateTotal() {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let total = 0;
+    
+    cart.forEach(item => {
+      total += item.price * item.quantity;
+    });
+
+    document.getElementById('totalPrice').innerText = total + " Da";
+  }
+
+  function removeFromCart(index) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.splice(index, 1);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCart();
+  }
+
+  function calculerFrais() {
+    const wilaya = document.getElementById("wilaya").value;
+    let fraisLivraison = 0;
+
+    // Définir les frais de livraison pour chaque wilaya
+    const fraisWilayas = {
+      "01": 400, // Adrar
+      "02": 400,  // Chlef
+      "03": 400, // Laghouat
+      "04": 400,  // Oum El Bouaghi
+      "05": 400,  // Batna
+      "06": 400,  // Béjaïa
+      "07": 400,  // Biskra
+      "08": 400, // Béchar
+      "09": 400,  // Blida
+      "10": 400,  // Bouira
+      "11": 400, // Tamanrasset
+      "12": 400,  // Tébessa
+      "13": 400,  // Tlemcen
+      "14": 400,  // Tiaret
+      "15": 400,  // Tizi-Ouzou
+      "16": 400,    // Alger - Livraison gratuite
+      "17": 400, // Djelfa
+      "18": 400,  // Jijel
+      "19": 400,  // Sétif
+      "20": 400, // Saida
+      "21": 400,  // Skikda
+      "22": 400,  // Sidi-Bel-Abbès
+      "23": 400,  // Annaba
+      "24": 400,  // Guelma
+      "25": 400,  // Constantine
+      "26": 400,  // Médéa
+      "27": 400,  // Mostaganem
+      "28": 400, // M'Sila
+      "29": 400,  // Mascara
+      "30": 400, // Ouargla
+      "31": 400,  // Oran
+      "32": 400, // El-Bayadh
+      "33": 400, // Illizi
+      "34": 400,  // Bordj-Bou-Arreridj
+      "35": 400,  // Boumerdès
+      "36": 400,  // El-Tarf
+      "37": 400, // Tindouf
+      "38": 400,  // Tissemsilt
+      "39": 400, // El-Oued
+      "40": 400,  // Khenchela
+      "41": 400,  // Souk-Ahras
+      "42": 400,  // Tipaza
+      "43": 400,  // Mila
+      "44": 400,  // Aïn-Defla
+      "45": 400, // Naâma
+      "46": 400,  // Aïn-Témouchent
+      "47": 400, // Ghardaia
+      "48": 400,  // Relizane
+      "49": 400, // Timimoun
+      "50": 400, // Bordj Badji Mokhtar
+      "51": 400, // Ouled Djellal
+      "52": 400, // Béni Abbès
+      "53": 400, // In Salah
+      "54": 400, // In Guezzam
+      "55": 400, // Touggourt
+      "56": 400, // Djanet
+      "57": 400, // El M'Ghair
+      "58": 400  // El Meniaa
+    };
+
+    fraisLivraison = fraisWilayas[wilaya] || 0;
+    
+    // Afficher les frais de livraison
+    document.getElementById('frais-livraison').innerText = fraisLivraison + " Da";
+    
+    // Mettre à jour le total
+    let totalElement = document.getElementById('totalPrice');
+    let total = parseInt(totalElement.innerText.replace(' Da', '')) || 0;
+    total += fraisLivraison;
+    
+    totalElement.innerText = total + " Da";
+  }
+
+  function updateCartCount() {
+    // Récupérer les articles du panier depuis le LocalStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    // Compter le nombre total d'articles
+    let totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+    
+    // Mettre à jour l'élément du compteur
+    document.getElementById('cart-count').innerText = totalCount;
+}
+
+function addToCart(name, price, image) {
+    // Récupérer les éléments actuels du panier dans le LocalStorage
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Vérifier si le produit est déjà dans le panier
+    let existingProduct = cart.find(item => item.name === name);
+    if (existingProduct) {
+        existingProduct.quantity += 1; // Augmenter la quantité si le produit est déjà dans le panier
+    } else {
+        // Ajouter le nouveau produit au panier
+        cart.push({name: name, price: price, image: image, quantity: 1});
+    }
+
+    // Stocker le panier mis à jour dans le LocalStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Mettre à jour le compteur du panier
+    updateCartCount();
+
+    alert(name + " a été ajouté au panier.");
+}
+
+window.onload = function() {
+    displayCart();
+    updateCartCount(); // Ajouter cette ligne
+};
+
+
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Empêche le rechargement de la page
+        // Ici, tu peux ajouter ton code de traitement (comme une requête AJAX)
+
+        // Redirection vers la page de confirmation
+        window.location.href = "thanks.html"; 
+    });
+
+
+</script>
+
+

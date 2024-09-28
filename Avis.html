@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nos Produits</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+   <!-- FontAwesome for Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+    <header>  
+
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <!-- Logo with link -->
+                <a class="navbar-brand" href="index.html" >
+                    <img src="./images/logo.png" alt="Logo Elite Uniforme" style="width: 100px; height: 100px;">
+                    <span class="ms-2 " style="font-family: 'Mochiy Pop P One', sans-serif; font-size: 1.5rem;color: #ffffff;">Elite Uniforme</span>
+                </a>
+                
+    
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="fas fa-bars"></span>
+                </button>
+              
+                <!-- Navigation Menu -->
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <!-- Home Link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white active" aria-current="page" href="./index.html">Home</a>
+                        </li>
+    
+                        <!-- Dropdown Menu for Products -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                                Nos Produits
+                            </a>
+                            <ul class="dropdown-menu">
+                            
+                                <li><a class="dropdown-item" href="Housses.html">Housse de Valise</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="Calots.html">Calot D'elite</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="t-shirt.html">T-shirt personnalisés</a></li>
+                            </ul>
+                        </li>
+    
+                        <!-- About Us Link -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="./about.html">Qui sommes-nous</a>
+                        </li>
+                    </ul>
+    
+                    <!-- Search Form -->
+                    <form class="d-flex me-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Rechercher">
+                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+    
+                </div>
+                <!-- Buy Now Button with Cart Icon -->
+                <div>
+                    <button onclick="displayCart()" class="btn btn-light position-relative" style="color:white; background:#BA324F ;">
+                        <a href="cart.html" style="text-decoration: none; color: inherit;">
+                            <i class="fas fa-shopping-cart"></i> Voir le panier
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+                        </a>
+                    </button>
+                    <div id="cartContent"></div> <!-- Section où le panier sera affiché -->
+                </div>
+</div>
+ 
+    
+        </nav>
+
+
+    </header>
+
+    <div class="container">
+        <h2 class="text-center my-4 display-4 fw-bold" style="color: #E046A0;">Les Avis De Nos Clients</h2>
+        <p class="text-center mb-5 lead" style="color: #555;">Un merci spécial pour les gens qui nous ont fait confiance❤️.</p>
+    
+        <div class="row">
+            <!-- Avis 1 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client1.jpg" class="rounded-circle mb-3" alt="Client 1" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">Tafna Voyages</h5>
+                        <p class="card-text">"Cliente satisfaite. Merci pour votre confiance Tafna Voyages. Good luck!"</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star-half-alt text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Avis 2 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client2.jpg" class="rounded-circle mb-3" alt="Client 2" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">Karim L.</h5>
+                        <p class="card-text">"Le calot personnalisé est vraiment unique et parfaitement fait. Merci !"</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Avis 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client3.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">Amina Z.</h5>
+                        <p class="card-text">"J'adore les produits, et l'équipe est très professionnelle."</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Avis 3 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="images/client4.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                                    <h5 class="card-title">Anonyme</h5>
+                                    <p class="card-text">"Commande bien reçu très bonne qualité"</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            <!-- Avis 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client5.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">DR Hannachi</h5>
+                        <p class="card-text">" un très bon calots pour relevé les défis 💪🏻 ."</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                        <!-- Avis 3 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="images/client6.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                                    <h5 class="card-title">DR B.ZOUHI</h5>
+                                    <p class="card-text">"J'ai adoré la tenu ça sea pas la derniere fois avec vous ."</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                                    <!-- Avis 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client7.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">Anonyme.</h5>
+                        <p class="card-text">"J'ai adoré le calot, il est très bien ni trop grand ni trop petit JUST PERFECT ❤️."</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        <!-- Avis 3 -->
+                        <div class="col-md-4">
+                            <div class="card shadow-sm">
+                                <div class="card-body text-center">
+                                    <img src="images/client8.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                                    <h5 class="card-title">Amina Z.</h5>
+                                    <p class="card-text">"3ejbetni bzef .. que ce soit le modèle, le tissu, la couleur, l'image, l'ecriture... Aussi pour la Taille je me sens trop a l'aise  et surtt tissue il est super bien! ❤️."</p>
+                                    <div class="stars">
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star text-warning"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                    <!-- Avis 3 -->
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <img src="images/client9.jpg" class="rounded-circle mb-3" alt="Client 3" style="width: 200px; height: 200px;">
+                        <h5 class="card-title">Infermier REFFAF.</h5>
+                        <p class="card-text">"Merci Elite Uniforme ❤️ ."</p>
+                        <div class="stars">
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="fas fa-star text-warning"></i>
+                            <i class="far fa-star text-warning"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div> <!-- Fin de la rangée -->
+    </div> <!-- Fin du conteneur -->
+    
+
+
+
+   <!-- Footer Section -->
+   <footer>
+
+    
+    <!-- Icônes de Communication -->
+    <div class="contact-icons d-flex justify-content-center py-3">
+        <a href="https://m.me/101951528789972" target="_blank" class="text-dark mx-3" title="Messenger">
+            <i class="fab fa-facebook-messenger fa-2x"></i>
+        </a>
+        <a href="https://instagram.com/unifom_delite/" target="_blank" class="text-dark mx-3" title="Instagram">
+            <i class="fab fa-instagram fa-2x"></i>
+        </a>
+        <a href="#" target="_blank" class="text-dark mx-3" title="TikTok">
+            <i class="fab fa-tiktok fa-2x"></i>
+        </a>
+        <a href="tel:+213657335085" class="text-dark mx-3" title="Appeler">
+            <i class="fas fa-phone fa-2x"></i>
+        </a>
+        <a href="https://wa.me/213657335085" target="_blank" class="text-dark mx-3" title="WhatsApp">
+            <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+    </div>
+
+      <!-- Our Values Section -->
+<div class="container values-section">
+    <h2 class="section-title">Nos Valeurs</h2>
+    <div class="row">
+        <div class="col-md-4 value-item">
+            <i class="fas fa-gem fa-3x mb-3 text-primary"></i>
+            <h4>Qualité Premium</h4>
+            <p>Nos produits sont fabriqués avec des matériaux de haute qualité pour assurer confort et durabilité.</p>
+        </div>
+        <div class="col-md-4 value-item">
+            <i class="fas fa-paint-brush fa-3x mb-3 text-success"></i>
+            <h4>Personnalisation Unique</h4>
+            <p>Chaque produit est conçu pour refléter votre style unique. Choisissez parmi une variété de designs ou créez le vôtre.</p>
+        </div>
+        <div class="col-md-4 value-item">
+            <i class="fas fa-shipping-fast fa-3x mb-3 text-warning"></i>
+            <h4>Livraison Rapide</h4>
+            <p>Nous nous engageons à expédier vos commandes rapidement et efficacement partout où vous êtes.</p>
+        </div>
+    </div>
+    <div class="py-3" id="copyright">
+        <p>&copy; 2024 Elite uniforme - Tous droits réservés</p>
+    </div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
